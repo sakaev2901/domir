@@ -1,4 +1,4 @@
-GET http://localhost:8081/api/allPosts
+GET http://localhost:8081/api/chat/GGG
 Accept: application/json
 
 ###

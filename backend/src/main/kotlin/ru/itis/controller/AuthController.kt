@@ -40,14 +40,15 @@ class AuthController {
         val authentication = authenticationManager.authenticate(UsernamePasswordAuthenticationToken(authDto.username, authDto.password))
         SecurityContextHolder.getContext().authentication = authentication
         val token = tokenProvider.createToken(user.username, user.role)!!
-        val jwtResponse = JwtResponse(token, user.username, user.role, user.name, user.surname, user.imageName)
+        val jwtResponse = JwtResponse(token, user.username)
         println(jwtResponse)
         return ResponseEntity.ok(jwtResponse)
     }
 
     @PostMapping("/signUp")
     fun signUp(@RequestBody newUser: NewUser) {
-        val user = User(newUser.name, newUser.surname, newUser.mail, newUser.username, passwordEncoder.encode(newUser.password), "ROLE_USER")
+        val user = User(newUser.email, newUser.username, passwordEncoder.encode(newUser.password), "ROLE_USER")
+         println(newUser)
         usersRepository.save(user)
     }
 }

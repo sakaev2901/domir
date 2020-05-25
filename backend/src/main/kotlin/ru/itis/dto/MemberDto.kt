@@ -1,10 +1,6 @@
 package ru.itis.dto
 
-import lombok.Data
-
-@Data
-class MessageDto {
-    lateinit var content: String
+class MemberDto {
     lateinit var username: String
     lateinit var chatName: String
 }

@@ -1,10 +1,11 @@
 package ru.itis.model
 
-class NewUser {
+import lombok.Data
+
+@Data
+class   NewUser {
     lateinit var username: String
-    lateinit var name: String
-    lateinit var surname: String
-    lateinit var mail: String
+    lateinit var email: String
     lateinit var password: String
   constructor()
 }

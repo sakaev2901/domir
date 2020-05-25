@@ -13,12 +13,10 @@ class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = 0
-    var isWatched = false
-
-    lateinit var text: String
+    lateinit var content: String
     @ManyToOne
     lateinit var sender: User
     @ManyToOne
-    lateinit var receiver: User
+    lateinit var chat: Chat
 
 }

@@ -78,7 +78,7 @@ open class ApplicationContextConfiguration {
 
     @Bean
     open fun hikariConfig() = HikariConfig().apply {
-        jdbcUrl = "jdbc:postgresql://localhost:5432/lets_learn"
+        jdbcUrl = "jdbc:postgresql://localhost:5432/domir"
         username = "postgres"
         password = "elvin2901"
         driverClassName = "org.postgresql.Driver"

@@ -24,16 +24,16 @@ class User : UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id = 0
     @Expose
-    lateinit var name: String
+    var name = ""
     @Expose
-    lateinit var surname: String
+    var surname = ""
     lateinit var mail: String
     @Expose
     private var username: String = ""
     @JsonIgnore
     private var password: String = ""
     lateinit var role: String
-    lateinit var imageName: String
+    var imageName = ""
     @OneToMany(fetch = FetchType.EAGER)
     @JsonIgnore
     lateinit var posts: List<Post>
@@ -43,16 +43,16 @@ class User : UserDetails {
     )
     @JsonIgnore
     lateinit var friends: MutableList<User>
-
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.EAGER)
+    lateinit var chats: MutableList<Chat>
 
     constructor()
 
-    constructor(name: String, surname: String, mail: String, username: String, password: String, role: String) {
+    constructor( mail: String, username: String, password: String, role: String) {
         this.mail = mail
-        this.name = name
         this.password = password
         this.role = role
-        this.surname = surname
         this.username = username
     }
 
@@ -71,6 +71,8 @@ class User : UserDetails {
         }
         friends.add(user)
     }
+
+
 
 
 

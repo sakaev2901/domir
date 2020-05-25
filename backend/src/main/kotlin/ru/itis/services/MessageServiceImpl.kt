@@ -7,6 +7,7 @@ import ru.itis.model.User
 import ru.itis.repositories.MessageRepository
 import ru.itis.repositories.UsersRepository
 import java.lang.IllegalStateException
+import java.util.*
 
 @Service
 class MessageServiceImpl : MessageService{
@@ -24,9 +25,6 @@ class MessageServiceImpl : MessageService{
     override fun getAllRoomMessage(firstUsername: String, secondUsername: String): List<Message> {
         println(firstUsername)
         println(secondUsername)
-        return messageRepository.findAllRoomMessages(
-                usersRepository.findByUsername(firstUsername) ?: throw IllegalStateException(),
-                usersRepository.findByUsername(secondUsername) ?: throw IllegalStateException()
-        )
+        return LinkedList<Message>()
     }
 }
